@@ -1,0 +1,407 @@
+@prefix : <http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1> .
+
+<http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1> rdf:type owl:Ontology ;
+                                                              owl:versionIRI <http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#frequenta
+<http://www.co-ode.org/ontologies/ont.owl#frequenta> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf <http://www.co-ode.org/ontologies/ont.owl#éFrequentadaPor> ;
+                                                     rdfs:domain [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty owl:topObjectProperty ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Aluno>
+                                                                 ] ;
+                                                     rdfs:range [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty owl:topObjectProperty ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#UC>
+                                                                ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#leciona
+<http://www.co-ode.org/ontologies/ont.owl#leciona> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <http://www.co-ode.org/ontologies/ont.owl#éLecionadaPor> ;
+                                                   rdfs:domain [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty owl:topObjectProperty ;
+                                                                 owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Professor>
+                                                               ] ;
+                                                   rdfs:range [ rdf:type owl:Restriction ;
+                                                                owl:onProperty owl:topObjectProperty ;
+                                                                owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#UC>
+                                                              ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#éFrequentadaPor
+<http://www.co-ode.org/ontologies/ont.owl#éFrequentadaPor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#éLecionadaPor
+<http://www.co-ode.org/ontologies/ont.owl#éLecionadaPor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdf:type owl:ObjectProperty ;
+                      owl:inverseOf owl:topObjectProperty ;
+                      rdf:type owl:SymmetricProperty ,
+                               owl:TransitiveProperty ,
+                               owl:ReflexiveProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#ident
+<http://www.co-ode.org/ontologies/ont.owl#ident> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain [ rdf:type owl:Restriction ;
+                                                               owl:onProperty owl:topObjectProperty ;
+                                                               owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Pessoa>
+                                                             ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#nome
+<http://www.co-ode.org/ontologies/ont.owl#nome> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#Aluno
+<http://www.co-ode.org/ontologies/ont.owl#Aluno> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Pessoa> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Pessoa
+<http://www.co-ode.org/ontologies/ont.owl#Pessoa> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Professor
+<http://www.co-ode.org/ontologies/ont.owl#Professor> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Pessoa> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#UC
+<http://www.co-ode.org/ontologies/ont.owl#UC> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#bruno
+<http://www.co-ode.org/ontologies/ont.owl#bruno> rdf:type owl:NamedIndividual ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty owl:topObjectProperty ;
+                                                            owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Aluno>
+                                                          ] ;
+                                                 <http://www.co-ode.org/ontologies/ont.owl#frequenta> <http://www.co-ode.org/ontologies/ont.owl#prc> ;
+                                                 <http://www.co-ode.org/ontologies/ont.owl#ident> "A71385"^^xsd:string ;
+                                                 <http://www.co-ode.org/ontologies/ont.owl#nome> "Bruno Silva"^^xsd:string .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#jcr
+<http://www.co-ode.org/ontologies/ont.owl#jcr> rdf:type owl:NamedIndividual ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty owl:topObjectProperty ;
+                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Professor>
+                                                        ] ;
+                                               <http://www.co-ode.org/ontologies/ont.owl#leciona> <http://www.co-ode.org/ontologies/ont.owl#prc> ;
+                                               <http://www.co-ode.org/ontologies/ont.owl#ident> "d2312"^^xsd:string ;
+                                               <http://www.co-ode.org/ontologies/ont.owl#nome> "José Carlos Ramalho"^^xsd:string .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#prc
+<http://www.co-ode.org/ontologies/ont.owl#prc> rdf:type owl:NamedIndividual ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty owl:topObjectProperty ;
+                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#UC>
+                                                        ] ;
+                                               <http://www.co-ode.org/ontologies/ont.owl#éFrequentadaPor> <http://www.co-ode.org/ontologies/ont.owl#bruno> ;
+                                               <http://www.co-ode.org/ontologies/ont.owl#éLecionadaPor> <http://www.co-ode.org/ontologies/ont.owl#jcr> ;
+                                               <http://www.co-ode.org/ontologies/ont.owl#nome> "Processamento e Representação do Conhecimento"^^xsd:string .
+
+
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#gcs
+:gcs rdf:type owl:NamedIndividual ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty owl:topObjectProperty ;
+                owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#UC>
+              ] ;
+     <http://www.co-ode.org/ontologies/ont.owl#éLecionadaPor> :prh ;
+     <http://www.co-ode.org/ontologies/ont.owl#nome> "Gramáticas na Compreensão de Software"^^xsd:string .
+
+
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#prh
+:prh rdf:type owl:NamedIndividual ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty owl:topObjectProperty ;
+                owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Professor>
+              ] ;
+     <http://www.co-ode.org/ontologies/ont.owl#leciona> :gcs ;
+     <http://www.co-ode.org/ontologies/ont.owl#ident> "d1111"^^xsd:string ;
+     <http://www.co-ode.org/ontologies/ont.owl#nome> "Pedro Rangel Henriques"^^xsd:string .
+
+
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#pri
+:pri rdf:type owl:NamedIndividual ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty owl:topObjectProperty ;
+                owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#UC>
+              ] ;
+     <http://www.co-ode.org/ontologies/ont.owl#éLecionadaPor> <http://www.co-ode.org/ontologies/ont.owl#jcr> ;
+     <http://www.co-ode.org/ontologies/ont.owl#nome> "Processamento e Representação de Informação"^^xsd:string .
+
+
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A81712
+:A81712 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A81712"^^xsd:string ;
+    :nome "Ana Filipa Pereira"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A71385
+:A71385 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A71385"^^xsd:string ;
+    :nome "Bruno Silva"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A78997
+:A78997 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A78997"^^xsd:string ;
+    :nome "Bruno Sousa"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A82324
+:A82324 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A82324"^^xsd:string ;
+    :nome "Carlos Barbosa"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#PG37149
+:PG37149 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "PG37149"^^xsd:string ;
+    :nome "Diego Silva"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A75536
+:A75536 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A75536"^^xsd:string ;
+    :nome "Eduardo Araújo"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A71940
+:A71940 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A71940"^^xsd:string ;
+    :nome "Eduardo Cunha"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A70922
+:A70922 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A70922"^^xsd:string ;
+    :nome "Francisco Costa"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#PG38415
+:PG38415 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "PG38415"^^xsd:string ;
+    :nome "Henrique Ribeiro"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A80757
+:A80757 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A80757"^^xsd:string ;
+    :nome "Jaime Leite"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A80424
+:A80424 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A80424"^^xsd:string ;
+    :nome "José Carvalho"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A63129
+:A63129 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A63129"^^xsd:string ;
+    :nome "José Freitas"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A72187
+:A72187 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A72187"^^xsd:string ;
+    :nome "José Lima"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#PG33874
+:PG33874 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "PG33874"^^xsd:string ;
+    :nome "João Grenhas"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A75569
+:A75569 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A75569"^^xsd:string ;
+    :nome "João Leal"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A80874
+:A80874 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A80874"^^xsd:string ;
+    :nome "João Pimentel"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A76516
+:A76516 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A76516"^^xsd:string ;
+    :nome "João Vieira"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A74036
+:A74036 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A74036"^^xsd:string ;
+    :nome "Manuel Monteiro"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A67713
+:A67713 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A67713"^^xsd:string ;
+    :nome "Manuel Moreno"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#PG39292
+:PG39292 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "PG39292"^^xsd:string ;
+    :nome "Maria Pinto"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#PG41089
+:PG41089 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "PG41089"^^xsd:string ;
+    :nome "Miguel Dias"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#PG17918
+:PG17918 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "PG17918"^^xsd:string ;
+    :nome "Paulo Martins"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A33524
+:A33524 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A33524"^^xsd:string ;
+    :nome "Pedro Paes"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A74264
+:A74264 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A74264"^^xsd:string ;
+    :nome "Rafael Silva"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A74568
+:A74568 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A74568"^^xsd:string ;
+    :nome "Ricardo Canela"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A75411
+:A75411 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A75411"^^xsd:string ;
+    :nome "Ricardo Leal"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A78914
+:A78914 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A78914"^^xsd:string ;
+    :nome "Ricardo Martins"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A78764
+:A78764 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A78764"^^xsd:string ;
+    :nome "Ricardo Neves"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A77045
+:A77045 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A77045"^^xsd:string ;
+    :nome "Ricardo Pereira"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A79947
+:A79947 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A79947"^^xsd:string ;
+    :nome "Rui Costa"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A74658
+:A74658 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A74658"^^xsd:string ;
+    :nome "Rui Vieira"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A82617
+:A82617 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A82617"^^xsd:string ;
+    :nome "Shahzod Yusupov"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A75328
+:A75328 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A75328"^^xsd:string ;
+    :nome "Tiago Baptista"^^xsd:string .           
+    
+  
+###  http://www.semanticweb.org/brunomac/ontologies/2020/1/TPC1#A61032
+:A61032 rdf:type owl:NamedIndividual ,
+             :Pessoa ;
+    :ident "A61032"^^xsd:string ;
+    :nome "Tiago Pereira"^^xsd:string .           
+    
+
+
+
+
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
