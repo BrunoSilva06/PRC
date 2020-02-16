@@ -1,0 +1,11 @@
+
+Ontologia:
+
+Classes: Obra, Instrumento, Partitura
+Atributos Obra: Id, Titulo, Tipo, Compositor
+Atributos Instrumento: Designacao
+Atributos Partitura: Voz, Type, Path
+Relacionamentos: Obras temInstrumento Instrumento
+			     Instrumento pertence Obra
+			     Partitura define Instrumento
+			     Instrumento éDefinidorPor Partitura

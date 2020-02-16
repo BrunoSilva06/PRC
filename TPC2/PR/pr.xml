@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/Users/Brunomac/Desktop/Mestrado/PLC/PRI/pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRC2020-A71385-T2</keyname>
+        <title>Ontologia</title>
+        <subtitle>Ontologia do Arquivo Musical</subtitle>
+        <bdate>10 de Fevereiro de 2020</bdate>
+        <edate>17 de Fevereiro de 2020</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www4.di.uminho.pt/~jcr/</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>a71385</identifier>
+            <name>Bruno Silva</name>
+            <email>a71385@alunos.uminho.pt</email>
+            <photo path="bruno.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>Para este trabalho foi pedida uma ontologia para o arquivo musical disponibilizado. Em primeira instância foi necessário pensar na ontologia de acordo com a informação presente no dataset, sendo que a lógica da ontologia se encontra disponível no ficheiro "ontologia.txt". Depois da base da ontologia feita, recorreu-se a uma transformação XSLT para povoar a ontologia com as entidades presentes no ficheiro XML, transformação essa presente no ficheiro "transform.xsl". Após a transformação, foi concatenada a informação gerada pela ontologia com a informação gerada pela transformação, dando origem ao ficheiro "musicas.ttl". Após concluída esta fase, foi carregada a ontologia no GraphDB para então se proceder às queries pedidas, queries essas que se encontram no ficheiro "Queries.txt". Os resultados das Queries podem ser encontrados na diretoria "../Results" </p>
+    </abstract>
+    <deliverables>
+        <deliverable path="https://github.com/BrunoSilva06/PRC/tree/master/TPC2"></deliverable>
+    </deliverables>
+</pr>
