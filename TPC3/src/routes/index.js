@@ -27,11 +27,11 @@ router.get('/', function(req, res, next) {
     })
 });
 
-router.get('/query/:repositorio', function(req, res){
+router.get('/repositories/:rep', function(req, res){
   var query = req.query.query
   var encoded = encodeURIComponent(prefixes + query)
 
-  axios.get(getLink + '/' + req.params.repositorio +'?query=' + encoded)
+  axios.get(getLink + '/' + req.params.rep +'?query=' + encoded)
       .then(dados => {
         res.jsonp(dados.data.results.bindings)
       })
