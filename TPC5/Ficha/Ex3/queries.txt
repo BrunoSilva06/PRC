@@ -1,0 +1,42 @@
+Quantos países estão catalogados na DBpedia?
+
+select count(distinct ?paises) where {
+?s dbo:nationality ?paises .
+   ?paises a dbo:Country .
+   filter not exists {
+      ?paises dbo:dissolutionYear ?d .   
+   } 
+}
+
+(236)
+
+Quantas pessoas têm como local de nascimento o país "Barbados"?
+
+select count(distinct ?people) as ?pessoas where {
+   ?people dbo:birthPlace ?place .
+   ?place dbo:country ?country . 
+   ?country foaf:name "Barbados"@en .
+} 
+
+(172)
+
+
+Quantos atores estão catalogados na DBPedia?
+
+select distinct count(?ator)  where {
+   ?a a dbo:Actor .
+   ?a foaf:name ?ator .
+   filter (lang(?ator) = 'en')
+}
+
+
+(10020)
+
+
+Em que filmes foi protagonista "Christopher Lambert"?
+
+select distinct ?a  where {
+   ?a a dbo:Actor .
+   ?a foaf:name "Christopher Lambert"@en.
+}
+

@@ -1,0 +1,251 @@
+@prefix : <http://www.semanticweb.org/brunomac/compras#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/brunomac/compras> .
+
+<http://www.semanticweb.org/brunomac/compras> rdf:type owl:Ontology ;
+                                               rdfs:comment "Exercicio 2 da ficha" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/brunomac/compras#compra
+:compra rdf:type owl:ObjectProperty ;
+        owl:inverseOf :éCompradoPor ;
+        rdfs:domain :Cliente ;
+        rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/brunomac/compras#vende
+:vende rdf:type owl:ObjectProperty ;
+       owl:inverseOf :éVendidoPor ;
+       rdfs:domain :Loja ;
+       rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/brunomac/compras#éCompradoPor
+:éCompradoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/brunomac/compras#éVendidoPor
+:éVendidoPor rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/brunomac/compras#codigo
+:codigo rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Produto .
+
+
+###  http://www.semanticweb.org/brunomac/compras#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Loja .
+
+
+###  http://www.semanticweb.org/brunomac/compras#emailCli
+:emailCli rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Cliente .
+
+
+###  http://www.semanticweb.org/brunomac/compras#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Loja .
+
+
+###  http://www.semanticweb.org/brunomac/compras#nomeCli
+:nomeCli rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Cliente .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/brunomac/compras#Cliente
+:Cliente rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/brunomac/compras#CompraVenda
+:CompraVenda rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Loja
+:Loja rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/brunomac/compras#LojaGrande
+:LojaGrande rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Produto
+:Produto rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/brunomac/compras#Agua
+:Agua rdf:type owl:NamedIndividual ,
+               :Produto ;
+      :éVendidoPor :Continente ,
+                   :Lidl ,
+                   :Pingo_Doce .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Alcool
+:Alcool rdf:type owl:NamedIndividual ,
+                 :Produto ;
+        :éVendidoPor :Continente ,
+                     :Lidl ,
+                     :Pingo_Doce .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Bruno
+:Bruno rdf:type owl:NamedIndividual ,
+                :Cliente ,
+                :CompraVenda ;
+       :compra :Agua ,
+               :Alcool ,
+               :Carne ,
+               :Queijo ;
+       :nomeCli "Bruno" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Carne
+:Carne rdf:type owl:NamedIndividual ,
+                :Produto ;
+       :éVendidoPor :Continente ,
+                    :Pingo_Doce ,
+                    :Talho_do_Bairro .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Continente
+:Continente rdf:type owl:NamedIndividual ,
+                     :CompraVenda ,
+                     :Loja ;
+            :nome "Continente" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Detergente
+:Detergente rdf:type owl:NamedIndividual ,
+                     :Produto ;
+            :éVendidoPor :Mercearia_do_João .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Fiambre
+:Fiambre rdf:type owl:NamedIndividual ,
+                  :Produto ;
+         :éVendidoPor :Pingo_Doce .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Leite
+:Leite rdf:type owl:NamedIndividual ,
+                :Produto ;
+       :éVendidoPor :Continente .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Lidl
+:Lidl rdf:type owl:NamedIndividual ,
+               :CompraVenda ,
+               :Loja ;
+      :nome "Lidl" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Mercearia_do_João
+:Mercearia_do_João rdf:type owl:NamedIndividual ,
+                            :CompraVenda ,
+                            :Loja ;
+                   :nome "Mercearia do João" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Pao
+:Pao rdf:type owl:NamedIndividual ,
+              :Produto ;
+     :éVendidoPor :Pingo_Doce .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Pedro
+:Pedro rdf:type owl:NamedIndividual ,
+                :Cliente ,
+                :CompraVenda ;
+       :compra :Agua ,
+               :Leite ,
+               :Peixe ,
+               :Sumo ;
+       :nomeCli "Pedro" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Peixe
+:Peixe rdf:type owl:NamedIndividual ,
+                :Produto ;
+       :éVendidoPor :Lidl .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Pingo_Doce
+:Pingo_Doce rdf:type owl:NamedIndividual ,
+                     :CompraVenda ,
+                     :Loja ;
+            :nome "Pingo Doce" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Queijo
+:Queijo rdf:type owl:NamedIndividual ,
+                 :Produto ;
+        :éVendidoPor :Continente .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Rui
+:Rui rdf:type owl:NamedIndividual ,
+              :Cliente ,
+              :CompraVenda ;
+     :compra :Agua ,
+             :Alcool ,
+             :Carne ,
+             :Pao ;
+     :nomeCli "Rui" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Simao
+:Simao rdf:type owl:NamedIndividual ,
+                :Cliente ,
+                :CompraVenda ;
+       :compra :Agua ,
+               :Alcool ,
+               :Sumo ;
+       :nomeCli "Simao" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Sumo
+:Sumo rdf:type owl:NamedIndividual ,
+               :Produto ;
+      :éVendidoPor :Mercearia_do_João .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Talho_do_Bairro
+:Talho_do_Bairro rdf:type owl:NamedIndividual ,
+                          :CompraVenda ,
+                          :Loja ;
+                 :nome "Talho do Bairro" .
+
+
+###  http://www.semanticweb.org/brunomac/compras#Tiago
+:Tiago rdf:type owl:NamedIndividual ,
+                :Cliente ,
+                :CompraVenda ;
+       :compra :Carne ,
+               :Fiambre ,
+               :Leite ,
+               :Peixe ,
+               :Queijo ;
+       :nomeCli "Tiago" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

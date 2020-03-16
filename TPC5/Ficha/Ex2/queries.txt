@@ -1,0 +1,41 @@
+
+
+Quais as lojas que vendem Agua?
+
+PREFIX : <http://www.semanticweb.org/brunomac/compras#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select ?loja where {
+    ?l1 a :Loja .
+    ?l1 :vende :Agua .
+    ?l1 :nome ?loja
+} 
+
+
+Que produtos são comprados pelo cliente Bruno?
+
+PREFIX : <http://www.semanticweb.org/brunomac/compras#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select ?produto where {
+    ?produto a :Produto .
+    ?produto :éCompradoPor :Bruno
+}
+
+
+Quem são os potenciais clientes do Continente ?
+
+
+PREFIX : <http://www.semanticweb.org/brunomac/compras#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select distinct ?clientes where {
+    ?c1 a :Cliente .
+    ?p1 a :Produto .
+    ?c1 :compra ?p1 .
+    ?p1 :éVendidoPor :Continente .
+    ?c1 :nomeCli ?clientes
+}
